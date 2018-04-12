@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TelefonAnwendung.Model
 {
-    public class LaenderKuerzel
+    public class KuerzelVorwahl
     {
         public string Laenderkuerzel { get; set; }
         public string Vorwahl { get; set; }
