@@ -10,25 +10,38 @@ namespace TelefonAnwendung.Model
     {
         const string pfadDefaultLand = "Ressourcen/DefaultLaendervorwahl.csv";
         const string pfadLaenderkuerzel = "Ressourcen/Laenderkuerzel.csv";
+        List<LaenderKuerzel> laenderkuerzelVorwahl = new List<LaenderKuerzel>();
+        List<LaenderKuerzel> defaultLandVorwahl = new List<LaenderKuerzel>();
 
-
-
-
-        public Dictionary<string, string> leseDefaultLaenderVorwahl()
+        public Speicherzugriff()
         {
-            Dictionary<string, string> defaultLandVorwahl = leseCSVDatei(pfadDefaultLand);           
-            return defaultLandVorwahl;
+            leseDefaultLaenderVorwahl();
+            leseLaenderkuerzelMitVorwahl();
         }
 
-        public Dictionary<string, string> leseLaenderkuerzelMitVorwahl() {
-            Dictionary<string, string> laenderkuerzelVorwahl = leseCSVDatei(pfadLaenderkuerzel);
-            return laenderkuerzelVorwahl;
+        public string ermittleLaenderkuerzel(string vorwahl) {
+            var kuerzel = laenderkuerzelVorwahl.Find(land => land.Vorwahl == vorwahl).Laenderkuerzel;
+            return kuerzel;
         }
 
-        private Dictionary<string, string> leseCSVDatei(string pfadDatei)
+        public string ermittleVorwahll(string laenderkuerzel) {
+            var vorwahl = laenderkuerzelVorwahl.Find(vwahl => vwahl.Laenderkuerzel == laenderkuerzel).Vorwahl;
+            return vorwahl;
+        }
+
+        private void leseDefaultLaenderVorwahl()
+        {
+            defaultLandVorwahl = leseCSVDatei(pfadDefaultLand);           
+        }
+
+        private void leseLaenderkuerzelMitVorwahl() {
+            laenderkuerzelVorwahl = leseCSVDatei(pfadLaenderkuerzel);
+        }
+
+        private List<LaenderKuerzel> leseCSVDatei(string pfadDatei)
         {
             string[] inhalte = { "", ""};
-            Dictionary<string, string> laenderkuerzelVorwahl = new Dictionary<string, string>();
+            List<LaenderKuerzel> laenderkuerzelVorwahl = new List<LaenderKuerzel>();
             string line;
  
             System.IO.StreamReader file =  new System.IO.StreamReader(pfadDatei);
@@ -36,7 +49,10 @@ namespace TelefonAnwendung.Model
             while ((line = file.ReadLine()) != null)
             {
                 inhalte = line.Split(';');
-                laenderkuerzelVorwahl.Add(inhalte[0], inhalte[1]);
+                LaenderKuerzel temp = new LaenderKuerzel();
+                temp.Laenderkuerzel = inhalte[0];
+                temp.Vorwahl = inhalte[1];
+                laenderkuerzelVorwahl.Add(temp);
             }
 
             file.Close();

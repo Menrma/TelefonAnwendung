@@ -6,35 +6,10 @@ using System.Threading.Tasks;
 
 namespace TelefonAnwendung.Model
 {
-    class LaenderKuerzel
+    public class LaenderKuerzel
     {
-        private string laenderkuerzel;
-        private string vorwahl;
+        public string Laenderkuerzel { get; set; }
+        public string Vorwahl { get; set; }
 
-        public string Laenderkuerzel
-        {
-            get
-            {
-                return laenderkuerzel;
-            }
-
-            set
-            {
-                laenderkuerzel = value;
-            }
-        }
-
-        public string Vorwahl
-        {
-            get
-            {
-                return vorwahl;
-            }
-
-            set
-            {
-                vorwahl = value;
-            }
-        }
     }
 }
