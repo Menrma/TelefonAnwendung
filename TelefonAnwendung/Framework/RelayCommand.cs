@@ -12,7 +12,7 @@ namespace TelefonAnwendung.Framework
         readonly Predicate<object> _canExecute;
 
         #endregion // Fields
-
+         
         #region Constructors
 
         public RelayCommand(Action<object> execute)

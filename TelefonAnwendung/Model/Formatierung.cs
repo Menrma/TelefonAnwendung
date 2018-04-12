@@ -10,7 +10,7 @@ namespace TelefonAnwendung.Model
     public class Formatierung
     {
         public Formatierung() {
-
+            
         }
 
         public bool formatiere(string nummer, string landKuerzel)
