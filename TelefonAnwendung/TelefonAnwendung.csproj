@@ -67,7 +67,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\Formatierung.cs" />
     <Compile Include="Model\LaenderKuerzel.cs" />
     <Compile Include="Model\Speicherzugriff.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
