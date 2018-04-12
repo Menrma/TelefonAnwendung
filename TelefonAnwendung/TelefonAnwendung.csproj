@@ -70,8 +70,8 @@
     <Compile Include="Framework\RelayCommand.cs" />
     <Compile Include="Model\Formatierung.cs" />
     <Compile Include="Model\LaenderKuerzel.cs" />
-    <Compile Include="Model\NummernValidator.cs" />
     <Compile Include="Model\Speicherzugriff.cs" />
+    <Compile Include="Model\Validierung.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

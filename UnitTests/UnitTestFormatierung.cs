@@ -12,7 +12,7 @@ namespace UnitTests
     public class UnitTestFormatierung
     {
         [TestMethod]
-        public void TestFormatierung()
+        public void testFormatierung()
         {
             Formatierung f = new Formatierung();
             f.formatiere("+49 (8024) [990-477]", "DE");
