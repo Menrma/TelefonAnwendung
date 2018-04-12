@@ -10,49 +10,61 @@
     Height="250"
     DataContext="{StaticResource MainWindowViewModel}"
     mc:Ignorable="d">
-    <Grid Background="LightBlue">
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
-            <RowDefinition Height="43" />
+            <RowDefinition Height="28" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="50" />
             <ColumnDefinition />
-            <ColumnDefinition Width="40" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Label
             Grid.Row="0"
             Grid.Column="0"
+            Margin="0,5,0,0"
             VerticalContentAlignment="Center"
             Content="Telefonnummer: " />
         <TextBox
             Grid.Row="0"
-            Grid.Column="1"
+            Grid.Column="2"
             Height="23"
+            Margin="0,5,0,0"
             HorizontalContentAlignment="Left"
             VerticalContentAlignment="Center"
             Text="{Binding TestText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <Label
             Grid.Row="0"
-            Grid.Column="2"
+            Grid.Column="1"
+            Width="27"
+            Height="23"
+            Margin="0,5,0,0"
             VerticalAlignment="Center"
-            Content="{Binding LandKuerzel}" />
+            Background="LightSlateGray"
+            Content="{Binding LandKuerzel, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+            Foreground="Azure" />
         <Button
             Grid.Row="0"
             Grid.Column="3"
             Width="40"
             Height="23"
+            Margin="5,5,0,0"
             HorizontalAlignment="Left"
+            Background="LightCyan"
             Content="Call"
             Visibility="{Binding CallButtonIsVisible, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
         <Label
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="0"
             Content="Default:" />
         <ComboBox
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="1"
+            Width="50   "
+            HorizontalAlignment="Center"
             ItemsSource="{Binding ListeLandKuerzel}"
             SelectedItem="{Binding SelectedLandKuerzel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ComboBox.ItemTemplate>
@@ -62,9 +74,22 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <Button
-            Grid.Row="1"
-            Grid.Column="3"
+            Grid.Row="2"
+            Grid.Column="2"
+            Width="100"
+            Height="23"
+            Margin="5,0,0,0"
+            HorizontalAlignment="Left"
+            Background="LightCyan"
             Command="{Binding SpeichereDefaultCommand}"
             Content="Default speichern" />
+        <Label
+            Grid.Row="1"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Margin="0,0,10,0"
+            Content="{Binding Fehlermeldung}"
+            FontStyle="Italic"
+            Foreground="Red" />
     </Grid>
 </Window>

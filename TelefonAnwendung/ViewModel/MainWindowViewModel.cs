@@ -19,15 +19,17 @@ namespace TelefonAnwendung.ViewModel
         private Speicherzugriff _speicherzugriff = new Speicherzugriff();
         private string _telefonnummerEingabe = String.Empty;
         private Visibility _callButtonIsVisible = Visibility.Visible;
-        private string _landKuerzel = "DE";
+        private string _landKuerzel;
         private KuerzelVorwahl _selectedLandKuerzel;
         private ObservableCollection<KuerzelVorwahl> _listeLandKuerzel;
+        private string _fehlermeldung = "Bei der Formatierung ist etwas falsch gelaufen!";
         #endregion
 
         public MainWindowViewModel()
         {
             ladeDropDown();
             ladeDefaultWert();
+            setLandKuerzel();
             SpeichereDefaultCommand = new RelayCommand(SpeichereDefaultCommandExecute);
         }
 
@@ -50,12 +52,17 @@ namespace TelefonAnwendung.ViewModel
         public KuerzelVorwahl SelectedLandKuerzel
         {
             get { return _selectedLandKuerzel; }
-            set { _selectedLandKuerzel = value;}
+            set { _selectedLandKuerzel = value; }
         }
         public ObservableCollection<KuerzelVorwahl> ListeLandKuerzel
         {
             get { return _listeLandKuerzel; }
             set { _listeLandKuerzel = value; }
+        }
+        public string Fehlermeldung
+        {
+            get { return _fehlermeldung; }
+            set { _fehlermeldung = value; }
         }
         #endregion
 
@@ -79,6 +86,10 @@ namespace TelefonAnwendung.ViewModel
         {
             var aktuellerDefaultWert = _speicherzugriff.defaultWertLandVorwahl.Laenderkuerzel;
             SelectedLandKuerzel = ListeLandKuerzel.First(s => s.Laenderkuerzel == aktuellerDefaultWert);
+        }
+        private void setLandKuerzel()
+        {
+            _landKuerzel = _speicherzugriff.defaultWertLandVorwahl.Laenderkuerzel;
         }
         #endregion
     }

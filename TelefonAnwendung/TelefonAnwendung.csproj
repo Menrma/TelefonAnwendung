@@ -67,7 +67,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Framework\RelayCommand.cs" />
+    <Compile Include="Model\Formatierung.cs" />
     <Compile Include="Model\LaenderKuerzel.cs" />
+    <Compile Include="Model\NummernValidator.cs" />
     <Compile Include="Model\Speicherzugriff.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
