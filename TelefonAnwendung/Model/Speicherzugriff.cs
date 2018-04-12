@@ -34,6 +34,7 @@ namespace TelefonAnwendung.Model
         public void setzeDefaultWert(KuerzelVorwahl neuerDefault) {
             string zuSchreiben = neuerDefault.Laenderkuerzel + ";" + neuerDefault.Vorwahl;
             Properties.Settings.Default.DefaultLand = zuSchreiben;
+            Properties.Settings.Default.Save();
             defaultWertLandVorwahl = neuerDefault;
         }
 
