@@ -5,12 +5,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:TelefonAnwendung.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
-    Width="525"
+    Title="Telefon-Anwendung"
+    Width="350"
     Height="350"
     DataContext="{StaticResource MainWindowViewModel}"
     mc:Ignorable="d">
-    <Grid>
-        <TextBox Text="{Binding TestText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            Margin="0,20,0,0"
+            Orientation="Horizontal">
+            <Label Content="Telefonnummer: " />
+            <TextBox
+                Width="150"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                Text="{Binding TestText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Button
+                Width="40"
+                Margin="5,0,0,0"
+                Content="Call"
+                Visibility="{Binding CallButtonIsVisible, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+
     </Grid>
 </Window>
