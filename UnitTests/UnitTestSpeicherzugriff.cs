@@ -31,6 +31,14 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void testKuerzelErmittlungFalscherWert()
+        {
+            Speicherzugriff sz = new Speicherzugriff();
+            string erg = sz.ermittleLaenderkuerzel("+99");
+            Assert.AreEqual(null, erg);
+        }
+
+        [TestMethod]
         public void testSetzeNeuenDefault()
         {
             Speicherzugriff sz = new Speicherzugriff();

@@ -22,7 +22,7 @@ namespace TelefonAnwendung.Model
         }
 
         public string ermittleLaenderkuerzel(string vorwahl) {
-            var kuerzel = laenderkuerzelVorwahl.Find(land => land.Vorwahl == vorwahl).Laenderkuerzel;
+            var kuerzel = laenderkuerzelVorwahl.Find(land => land.Vorwahl == vorwahl)?.Laenderkuerzel;
             return kuerzel;
         }
 
