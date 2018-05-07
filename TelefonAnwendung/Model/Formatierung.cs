@@ -13,14 +13,23 @@ namespace TelefonAnwendung.Model
             
         }
 
-        public bool formatiere(string nummer, string landKuerzel)
+        public string formatiere(string nummer, string landKuerzel)
         {
+            if (String.IsNullOrEmpty(nummer) || String.IsNullOrEmpty(landKuerzel)) return String.Empty;
+
             var phoneNumberUtil = PhoneNumberUtil.Instance;
-            var number1 = phoneNumberUtil.Parse(nummer, landKuerzel);
 
-            var formatted = number1.Format(PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
+            try
+            {
+                var number1 = phoneNumberUtil.Parse(nummer, landKuerzel);
+                var formatted = number1.Format(PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
 
-            return true;
+                return formatted;
+            }
+            catch(Exception e)
+            {
+                return String.Empty;
+            }
         }
     }
 }

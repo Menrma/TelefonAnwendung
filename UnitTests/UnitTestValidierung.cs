@@ -146,10 +146,5 @@ namespace UnitTests
             Assert.AreEqual(false, isKorrekteNummer);
         }
 
-
-
-
-
-
     }
 }

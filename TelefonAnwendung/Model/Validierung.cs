@@ -8,7 +8,7 @@ namespace TelefonAnwendung.Model
 {
     public class Validierung
     {
-        // TODO: Ziffern oder Zeichen?
+        // Ziffern, Zeichen (Klammern usw.) werden nicht beachtet
         const int minimaleZiffern = 4;
         const int maximaleZiffern = 20;
 

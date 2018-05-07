@@ -15,7 +15,25 @@ namespace UnitTests
         public void testFormatierung()
         {
             Formatierung f = new Formatierung();
-            f.formatiere("+49 (8024) [990-477]", "DE");
+            var res = f.formatiere("+49 (8024) [990-477]", "DE");
+            Assert.AreEqual("+49 8024 990477", res);
         }
+
+        [TestMethod]
+        public void testFormatierungFalscheEingaben()
+        {
+            Formatierung f = new Formatierung();
+            var res = f.formatiere("##", "jhy");
+            Assert.AreEqual(String.Empty, res);
+        }
+
+        [TestMethod]
+        public void testFormatierungLeereEingaben()
+        {
+            Formatierung f = new Formatierung();
+            var res = f.formatiere("", "");
+            Assert.AreEqual(String.Empty, res);
+        }
+
     }
 }
