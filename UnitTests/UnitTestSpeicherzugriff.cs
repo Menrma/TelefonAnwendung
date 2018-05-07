@@ -16,6 +16,14 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void testVorwahlErmittlungFalscherWert()
+        {
+            Speicherzugriff sz = new Speicherzugriff();
+            string erg = sz.ermittleVorwahl("YE");
+            Assert.AreEqual(null, erg);
+        }
+
+        [TestMethod]
         public void testKuerzelErmittlung() {
             Speicherzugriff sz = new Speicherzugriff();
             string erg = sz.ermittleLaenderkuerzel("+49");

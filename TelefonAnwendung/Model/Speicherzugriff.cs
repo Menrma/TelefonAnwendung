@@ -27,7 +27,7 @@ namespace TelefonAnwendung.Model
         }
 
         public string ermittleVorwahl(string laenderkuerzel) {
-            var vorwahl = laenderkuerzelVorwahl.Find(vwahl => vwahl.Laenderkuerzel == laenderkuerzel).Vorwahl;
+            var vorwahl = laenderkuerzelVorwahl.Find(vwahl => vwahl.Laenderkuerzel == laenderkuerzel)?.Vorwahl;
             return vorwahl;
         }
 
